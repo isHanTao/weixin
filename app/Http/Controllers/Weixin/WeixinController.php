@@ -61,7 +61,7 @@ class WeixinController extends Controller
                            <FuncFlag>0</FuncFlag>
                            </xml>";
                 $userInfo = $this->getWeixinToken($request->openid);
-
+                log_info(json_encode($userInfo,JSON_UNESCAPED_UNICODE));
                 //订阅事件
                 if($postObj->Event=="subscribe")
                 {
