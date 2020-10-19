@@ -125,10 +125,10 @@ class WeixinController extends Controller
         }
     }
 
-    public function getAccessToken(){
+    protected function getAccessToken(){
         $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' . env('WECHAT_KEY') . '&secret=' . env('WECHAT_SECRET');
         $guzzle = new Client();
-        log_info($url);
+        log_info('URL:'.$url);
         $res = $guzzle->get($url)->getBody();
         $token = json_decode($res, true);
         if (key_exists('access_token',$token)){
