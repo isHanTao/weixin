@@ -92,7 +92,7 @@ class WeixinController extends Controller
                 if(!empty( $keyword ))
                 {
                     $msgType = "text";
-                    $contentStr = "你好！".$userInfo['nickname'];
+                    $contentStr = "你好！";
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     return $resultStr;
                 }else{
