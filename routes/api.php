@@ -20,4 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix'=>'weixin','namespace'=>'Weixin'], function () {
     Route::any('receive','WeixinController@receive');
+    Route::get('/qrcode', 'WeixinController@getLoginQrcode');
+    Route::get('/isscan', 'WeixinController@isScan');
 });
