@@ -131,7 +131,7 @@ class WeixinController extends Controller
         log_info('URL:'.$url);
         $res = $guzzle->get($url)->getBody();
         $token = json_decode($res, true);
-        log_info('TOKEN:'.$token);
+        log_info('TOKEN:'.json_encode($token,JSON_UNESCAPED_UNICODE));
         if (key_exists('access_token',$token)){
             return $token['access_token'];
         }else{
