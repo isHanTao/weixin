@@ -42,9 +42,6 @@ class WeixinController extends Controller
     }
     public function receive(Request $request)
     {
-        $echoStr = $request["echostr"];
-        log_info('message---------------------------'. implode(" ",$request->all()));
-        return $echoStr;
         try{
             $postStr = file_get_contents('php://input');;
             if (!empty($postStr)){
@@ -94,7 +91,7 @@ class WeixinController extends Controller
                 if(!empty( $keyword ))
                 {
                     $msgType = "text";
-                    $contentStr = "你好！";
+                    $contentStr = "你好！".$userInfo['nickname'];
                     $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                     return $resultStr;
                 }else{
