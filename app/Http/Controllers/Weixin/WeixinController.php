@@ -49,6 +49,7 @@ class WeixinController extends Controller
                 $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $fromUsername = $postObj->FromUserName;
                 $toUsername = $postObj->ToUserName;
+                log_info(json_encode($postObj,JSON_UNESCAPED_UNICODE));
                 $keyword = trim($postObj->Content);
                 $time = time();
                 $textTpl = "<xml>
@@ -98,7 +99,7 @@ class WeixinController extends Controller
                     return "Input something...";
                 }
             }else {
-                return "";
+                return "null";
             }
         }catch (\Exception $e){
             log_exception($e);
